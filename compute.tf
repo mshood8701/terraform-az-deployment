@@ -25,7 +25,7 @@ resource "azurerm_linux_virtual_machine" "webapp" {
 
   admin_ssh_key {
     username   = "azureuser"
-    public_key = file("/Users/shood/Dev/infra_code/web-app/ssh.pub")
+    public_key = file("~/ssh.pub")
   }
 
   provisioner "remote-exec" {
@@ -40,7 +40,7 @@ resource "azurerm_linux_virtual_machine" "webapp" {
     connection {
       type        = "ssh"
       user        = "azureuser"
-      private_key = file("/Users/shood/Dev/infra_code/web-app/ssh")
+      private_key = file("~/ssh")
       host        = azurerm_public_ip.public_ip.ip_address
     }
   }
@@ -52,7 +52,7 @@ resource "azurerm_linux_virtual_machine" "webapp" {
     connection {
       type        = "ssh"
       user        = "azureuser"
-      private_key = file("/Users/shood/Dev/infra_code/web-app/ssh")
+      private_key = file("~/ssh")
       host        = azurerm_public_ip.public_ip.ip_address
     }
   }
